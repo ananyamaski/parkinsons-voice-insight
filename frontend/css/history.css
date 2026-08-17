@@ -1,0 +1,687 @@
+/* =========================================================
+   HISTORY PAGE — FINAL REFERENCE DESIGN
+========================================================= */
+
+.history-page {
+    min-height: 100vh;
+    background: #ffffff;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.history-container {
+    width: calc(100% - 80px);
+    max-width: 1450px;
+    margin: 0 auto;
+    padding: 42px 0 30px;
+}
+
+
+/* =========================================================
+   INTRO
+========================================================= */
+
+.history-intro {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-bottom: 28px;
+}
+
+.history-intro-left {
+    min-width: 0;
+}
+
+.history-eyebrow {
+    margin: 0 0 10px;
+
+    color: #1683e8;
+
+    font-size: 11px;
+    font-weight: 700;
+
+    letter-spacing: 1.8px;
+}
+
+.history-title {
+    margin: 0 0 10px;
+
+    color: #111827;
+
+    font-size: 32px;
+    line-height: 1.15;
+    font-weight: 400;
+}
+
+.history-title span {
+    color: #3b9ded;
+}
+
+.history-subtitle {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 15px;
+}
+
+
+/* =========================================================
+   FILTER
+========================================================= */
+
+.history-filter select {
+    width: 176px;
+    height: 42px;
+
+    padding: 0 13px;
+
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+
+    background: #ffffff;
+
+    color: #1f2937;
+
+    font-size: 13px;
+
+    outline: none;
+}
+
+.history-filter select:focus {
+    border-color: #3b82f6;
+}
+
+
+/* =========================================================
+   CONTENT LAYOUT
+========================================================= */
+
+.history-content {
+    display: grid;
+
+    grid-template-columns:
+        minmax(0, 1fr)
+        335px;
+
+    gap: 34px;
+
+    align-items: start;
+}
+
+
+/* =========================================================
+   CARDS GRID
+========================================================= */
+
+.history-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(220px, 1fr));
+    gap: 18px;
+    width: 100%;
+}
+
+
+/* =========================================================
+   HISTORY CARD
+========================================================= */
+
+ .history-card {
+    width: 100%;
+    min-width: 0;
+    min-height: 290px;
+
+    padding: 20px;
+
+    border: 1px solid var(--history-border, #dbeafe);
+
+    border-radius: 12px;
+
+    background: var(
+        --history-bg,
+        #f7fbff
+    );
+
+    box-sizing: border-box;
+
+    display: flex;
+    flex-direction: column;
+
+    transition:
+        transform 0.15s ease,
+        box-shadow 0.15s ease;
+}
+
+.history-card:hover {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 7px 20px rgba(
+            15,
+            23,
+            42,
+            0.07
+        );
+}
+
+/* =========================================================
+   DATE
+========================================================= */
+
+.history-card-date {
+    display: flex;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-bottom: 16px;
+
+    color: #475569;
+
+    font-size: 12px;
+    line-height: 1.4;
+}
+
+.history-card-date::before {
+    content: "▣";
+
+    color: var(
+        --history-accent,
+        #3b82f6
+    );
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   SAMPLE TITLE
+========================================================= */
+
+.history-card-title {
+    margin: 0 0 12px;
+
+    color: #0f172a;
+
+    font-size: 17px;
+    line-height: 1.3;
+
+    font-weight: 650;
+}
+
+
+/* =========================================================
+   RESULT BADGE
+========================================================= */
+
+.history-card-result {
+    display: inline-flex;
+
+    align-self: flex-start;
+
+    margin-bottom: 15px;
+
+    padding: 6px 10px;
+
+    border-radius: 999px;
+
+    background: var(
+        --history-badge-bg,
+        #dbeafe
+    );
+
+    color: var(
+        --history-accent-dark,
+        #1d4ed8
+    );
+
+    font-size: 11px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   MINI GRAPH
+========================================================= */
+
+.history-mini-graph {
+    width: 100%;
+    height: 78px;
+
+    margin: auto 0 17px;
+
+    overflow: hidden;
+}
+
+.history-mini-graph svg {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+}
+
+
+/* =========================================================
+   BUTTON AREA
+========================================================= */
+
+.history-card-actions {
+    display: grid;
+
+    grid-template-columns:
+        1fr 1fr;
+
+    gap: 10px;
+
+    width: 100%;
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+.history-card-actions button {
+    height: 36px;
+
+    padding: 0 10px;
+
+    border-radius: 7px;
+
+    font-family: inherit;
+
+    font-size: 11px;
+
+    font-weight: 500;
+
+    cursor: pointer;
+
+    transition:
+        background 0.15s ease,
+        border-color 0.15s ease;
+}
+
+
+/* VIEW DETAILS */
+
+.history-view-button {
+    border: 1px solid #cbd5e1;
+
+    background: #ffffff;
+
+    color: #334155;
+}
+
+.history-view-button:hover {
+    border-color: #3b82f6;
+
+    color: #2563eb;
+}
+
+
+/* DOWNLOAD */
+
+.history-download-button {
+    border: 1px solid #2563eb;
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+.history-download-button:hover {
+    background: #1d4ed8;
+}
+
+
+/* =========================================================
+   RIGHT INFORMATION PANEL
+========================================================= */
+
+.history-info-panel {
+    padding: 24px;
+
+    background: #ffffff;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    box-shadow:
+        0 2px 10px rgba(
+            15,
+            23,
+            42,
+            0.035
+        );
+}
+
+.history-info-title {
+    display: flex;
+
+    align-items: center;
+
+    gap: 12px;
+
+    margin-bottom: 28px;
+
+    color: #111827;
+
+    font-size: 17px;
+
+    font-weight: 650;
+}
+
+.history-info-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 38px;
+    height: 38px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 17px;
+}
+
+
+/* =========================================================
+   INFO ITEMS
+========================================================= */
+
+.history-info-item {
+    display: grid;
+
+    grid-template-columns: 48px 1fr;
+
+    gap: 13px;
+
+    margin-bottom: 26px;
+}
+
+.history-info-item:last-of-type {
+    margin-bottom: 28px;
+}
+
+.history-info-item-icon {
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    width: 42px;
+    height: 42px;
+
+    border-radius: 50%;
+
+    background: #eff6ff;
+
+    color: #2563eb;
+
+    font-size: 17px;
+}
+
+.history-info-item:nth-child(3)
+.history-info-item-icon {
+    background: #ecfdf5;
+
+    color: #16a34a;
+}
+
+.history-info-item:nth-child(4)
+.history-info-item-icon {
+    background: #f5f3ff;
+
+    color: #7c3aed;
+}
+
+.history-info-item:nth-child(5)
+.history-info-item-icon {
+    background: #fff7ed;
+
+    color: #ea580c;
+}
+
+.history-info-item h4 {
+    margin: 2px 0 5px;
+
+    color: #111827;
+
+    font-size: 14px;
+
+    font-weight: 650;
+}
+
+.history-info-item p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PRIVACY BOX
+========================================================= */
+
+.history-privacy {
+    padding: 18px;
+
+    border: 1px solid #dbeafe;
+
+    border-radius: 9px;
+
+    background: #eff6ff;
+}
+
+.history-privacy-title {
+    margin: 0 0 9px;
+
+    color: #2563eb;
+
+    font-size: 14px;
+
+    font-weight: 650;
+}
+
+.history-privacy p {
+    margin: 0;
+
+    color: #475569;
+
+    font-size: 12px;
+
+    line-height: 1.55;
+}
+
+
+/* =========================================================
+   PAGINATION
+========================================================= */
+
+.history-pagination {
+    display: flex;
+
+    justify-content: center;
+    align-items: center;
+
+    gap: 8px;
+
+    margin-top: 30px;
+}
+
+.history-pagination button {
+    width: 38px;
+    height: 38px;
+
+    border: 1px solid #dbe2ea;
+
+    border-radius: 7px;
+
+    background: #ffffff;
+
+    color: #334155;
+
+    font-size: 13px;
+
+    cursor: pointer;
+}
+
+.history-pagination button:hover {
+    border-color: #3b82f6;
+
+    color: #2563eb;
+}
+
+.history-pagination button.active {
+    border-color: #2563eb;
+
+    background: #2563eb;
+
+    color: #ffffff;
+}
+
+.history-pagination .dots {
+    color: #64748b;
+
+    padding: 0 3px;
+}
+
+
+/* =========================================================
+   EMPTY STATE
+========================================================= */
+
+.history-empty {
+    grid-column: 1 / -1;
+
+    min-height: 260px;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+
+    border: 1px solid #e2e8f0;
+
+    border-radius: 12px;
+
+    background: #ffffff;
+}
+
+.history-empty h2 {
+    margin: 0 0 8px;
+
+    color: #111827;
+
+    font-size: 20px;
+
+    font-weight: 500;
+}
+
+.history-empty p {
+    margin: 0;
+
+    color: #64748b;
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.history-footer {
+    margin-top: 36px;
+
+    padding: 20px 0;
+
+    border-top: 1px solid #e5e7eb;
+
+    text-align: center;
+
+    color: #64748b;
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 1250px) {
+
+    .history-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(240px, 1fr));
+    gap: 18px;
+    width: 100%;
+}
+
+    .history-content {
+        grid-template-columns:
+            minmax(0, 1fr)
+            300px;
+    }
+}
+
+
+@media (max-width: 900px) {
+
+    .history-content {
+        grid-template-columns: 1fr;
+    }
+
+    .history-info-panel {
+        order: 2;
+    }
+}
+
+
+@media (max-width: 650px) {
+
+    .history-container {
+        width: calc(100% - 30px);
+
+        padding-top: 25px;
+    }
+
+    .history-intro {
+        flex-direction: column;
+
+        align-items: flex-start;
+
+        gap: 18px;
+    }
+
+    .history-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .history-filter {
+        width: 100%;
+    }
+
+    .history-filter select {
+        width: 100%;
+    }
+}

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Register | Parkinson's Voice Insight</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./css/style.css">
+</head>
+
+<body>
+
+    <video class="login-background-video"
+           autoplay
+           muted
+           loop
+           playsinline>
+        <source src="./videos/login-background.mp4" type="video/mp4">
+    </video>
+
+    <div class="login-background-overlay"></div>
+
+    <div class="login-container">
+
+        <div class="login-header">
+            <h1>Create Account</h1>
+            <p>Register to use Parkinson's Voice Insight</p>
+        </div>
+
+        <form class="login-form" id="registerForm">
+
+            <div class="form-group">
+                <label for="name">Full Name</label>
+                <input
+                    type="text"
+                    id="name"
+                    name="name"
+                    placeholder="Enter your full name"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input
+                    type="email"
+                    id="email"
+                    name="email"
+                    placeholder="Enter your email"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="password">Password</label>
+                <input
+                    type="password"
+                    id="password"
+                    name="password"
+                    placeholder="Create a password"
+                    required
+                >
+            </div>
+
+            <div class="form-group">
+                <label for="confirmPassword">Confirm Password</label>
+                <input
+                    type="password"
+                    id="confirmPassword"
+                    name="confirmPassword"
+                    placeholder="Confirm your password"
+                    required
+                >
+            </div>
+
+            <button type="submit">Create Account</button>
+
+        </form>
+
+        <p class="register-text">
+            Already have an account?
+            <a href="login.html">Login</a>
+        </p>
+
+    </div>
+    
+    <script src="./js/register.js"></script>
+
+</body>
+</html>

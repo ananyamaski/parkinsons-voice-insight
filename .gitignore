@@ -1,0 +1,16 @@
+.venv/
+__pycache__/
+*.pyc
+users.db
+
+data/
+record_test_audio.py
+
+ml/compare_models.py
+ml/evaluate_original_model.py
+ml/evaluate_tuned_model.py
+ml/train_model.py
+ml/tune_svm.py
+ml/tune_svm_group.py
+
+models/parkinsons_svm_tuned.pkl

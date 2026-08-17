@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - Parkinson's Voice Insight</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body class="dashboard-page">
+
+    <!-- =====================================================
+         DASHBOARD HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+        <div class="dashboard-logo">
+
+            <div class="logo-icon">
+                〽
+            </div>
+
+            <div class="logo-text">
+                <strong>Parkinson's</strong>
+                <span>Voice Insight</span>
+            </div>
+
+        </div>
+
+
+        <nav class="dashboard-nav">
+
+    <a href="dashboard.html" class="active">
+        Dashboard
+    </a>
+
+    <a href="analysis.html">
+        Analyze Voice
+    </a>
+
+    <a href="history.html">
+        History
+    </a>
+
+   
+
+</nav>
+        <div class="dashboard-user">
+
+            <div class="notification-icon">
+                ♧
+            </div>
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    👤
+                </div>
+
+                <span id="welcomeUser"></span>
+
+            </div>
+
+            <button id="logoutBtn" class="logout-button">
+                Logout
+            </button>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN DASHBOARD
+    ====================================================== -->
+
+    <main class="dashboard-container">
+
+
+        <!-- =================================================
+             HERO SECTION
+        ================================================== -->
+
+        <section class="dashboard-hero">
+
+
+            <!-- LEFT SIDE -->
+
+            <div class="hero-content">
+
+                <div class="hero-badge">
+                    ✦ &nbsp; AI-Powered Health Monitoring
+                </div>
+
+
+                <h1>
+                    Analyze Your Voice.
+                    <span>Understand Your Risk.</span>
+                </h1>
+
+
+                <p>
+                    Use AI-powered voice analysis to identify speech
+                    patterns associated with Parkinson’s risk and
+                    support early assessment.
+                </p>
+
+
+                <button
+                    id="startAnalysisBtn"
+                    class="hero-button"
+                >
+                    <span>♧</span>
+                    Upload Voice Sample
+                    <span>→</span>
+                </button>
+
+            </div>
+
+
+            <!-- RIGHT SIDE IMAGE -->
+
+            <div class="hero-image">
+
+                <img
+                    src="./images/dashboard-patient.jpg"
+                    alt="Doctor supporting a patient"
+                >
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             FEATURE CARDS
+        ================================================== -->
+
+        <section class="dashboard-feature-cards">
+
+
+            <!-- AI DETECTION -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ♫
+                </div>
+
+                <div class="feature-content">
+
+                    <h2>
+                        AI-Powered Detection
+                    </h2>
+
+                    <p>
+                        Early detection with 98% accuracy
+                        to help you take action sooner.
+                    </p>
+
+                    <button
+                        id="featureAnalysisBtn"
+                        class="feature-link"
+                    >
+                        Analyze Now
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PERSONALIZED INSIGHTS -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ▣
+                </div>
+
+                <div class="feature-content">
+
+                    <h2>
+                        Personalized Insights
+                    </h2>
+
+                    <p>
+                        Get personalized insights and
+                        recommendations based on your
+                        voice analysis.
+                    </p>
+
+                    <button
+                        id="viewHistoryBtn"
+                        class="feature-link"
+                    >
+                        View Insights
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- COMMUNITY -->
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ♧
+                </div>
+
+                <div class="feature-content">
+
+                    <h2>
+                        Analysis Reports
+                    </h2>
+
+                    <p>
+                        View and download your previous
+                        voice analysis reports in PDF format.
+                    </p>
+
+                    <button
+                        id="viewReportsBtn"
+                        class="feature-link"
+                    >
+                        View Reports
+                        <span>→</span>
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             DASHBOARD STATISTICS
+        ================================================== -->
+
+        <section class="dashboard-stats">
+
+
+            <!-- TOTAL ANALYSES -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+                    📈
+                </div>
+
+                <div class="stat-content">
+
+                    <strong id="totalAnalyses">
+                        0
+                    </strong>
+
+                    <span>
+                        Total Analyses
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LATEST RESULT -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+                    🛡
+                </div>
+
+                <div class="stat-content">
+
+                    <strong id="latestResult">
+                        —
+                    </strong>
+
+                    <span>
+                        Latest Result
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LATEST DATE -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+                    📅
+                </div>
+
+                <div class="stat-content">
+
+                    <strong id="latestDate">
+                        —
+                    </strong>
+
+                    <span>
+                        Latest Analysis
+                    </span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- LATEST SAMPLE -->
+
+            <div class="dashboard-stat">
+
+                <div class="stat-icon">
+                    🔊
+                </div>
+
+                <div class="stat-content">
+
+                    <strong id="latestSample">
+                        —
+                    </strong>
+
+                    <span>
+                        Latest Sample
+                    </span>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- =================================================
+             BOTTOM MESSAGE
+        ================================================== -->
+
+        <section class="dashboard-message">
+
+            <div class="message-icon">
+                “
+            </div>
+
+            <p>
+                Early detection can make a real difference.
+                Your voice can be the first step.
+            </p>
+
+        </section>
+
+
+    </main>
+
+
+    <script src="./js/dashboard.js"></script>
+
+</body>
+</html>

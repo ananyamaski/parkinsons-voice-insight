@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>
+        Analysis History | Parkinson's Voice Insight
+    </title>
+
+    <link
+        rel="stylesheet"
+        href="css/style.css"
+    >
+
+    <link
+    rel="stylesheet"
+    href="css/history.css"
+>
+
+</head>
+
+
+<body class="dashboard-page history-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+<header class="dashboard-header">
+
+    <div class="dashboard-logo">
+
+        <div class="logo-icon">
+            〽
+        </div>
+
+        <div class="logo-text">
+            <strong>Parkinson's</strong>
+            <span>Voice Insight</span>
+        </div>
+
+    </div>
+
+    <nav class="dashboard-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="analysis.html">
+            Analyze Voice
+        </a>
+
+        <a href="history.html" class="active">
+            History
+        </a>
+
+    </nav>
+
+    <div class="dashboard-user">
+
+        <div class="notification-icon">
+            ♧
+        </div>
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+                👤
+            </div>
+
+            <span id="welcomeUser"></span>
+
+        </div>
+
+    </div>
+
+</header>
+   
+
+    <!-- =====================================================
+         MAIN HISTORY PAGE
+    ====================================================== -->
+
+   <main class="history-container">
+
+    <!-- =====================================================
+         HISTORY INTRO
+    ====================================================== -->
+
+    <section class="history-intro">
+
+        <div class="history-intro-left">
+
+            <p class="history-eyebrow">
+                VOICE ANALYSIS HISTORY
+            </p>
+
+           <h1>
+                Analysis
+                <span>
+                    History
+                </span>
+            </h1>
+
+            <p class="history-subtitle">
+                View and review your previous voice analyses.
+            </p>
+
+        </div>
+
+
+        <div class="history-filter">
+
+            <select id="historyFilter">
+
+                <option value="all">
+                    All Results
+                </option>
+
+                <option value="lower">
+                    Lower Risk
+                </option>
+
+                <option value="higher">
+                    Higher Risk
+                </option>
+
+            </select>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <section class="history-content">
+
+
+        <!-- =================================================
+             HISTORY CARDS
+        ================================================== -->
+
+        <div>
+
+            <section
+                id="historyGrid"
+                class="history-grid"
+            >
+
+            </section>
+
+
+            <!-- PAGINATION -->
+
+            <div
+                id="historyPagination"
+                class="history-pagination"
+            >
+
+            </div>
+
+        </div>
+
+
+
+        <!-- =================================================
+             RIGHT INFORMATION PANEL
+        ================================================== -->
+
+        <aside class="history-info-panel">
+
+
+            <div class="history-info-title">
+
+                <div class="history-info-icon">
+                    ▤
+                </div>
+
+                <span>
+                    What each page contains
+                </span>
+
+            </div>
+
+
+
+            <!-- DASHBOARD -->
+
+            <div class="history-info-item">
+
+                <div class="history-info-item-icon">
+                    ⌂
+                </div>
+
+                <div>
+
+                    <h4>
+                        Dashboard
+                    </h4>
+
+                    <p>
+                        Shows your overall prediction
+                        and confidence score.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- NEW ANALYSIS -->
+
+            <div class="history-info-item">
+
+                <div class="history-info-item-icon">
+                    ◉
+                </div>
+
+                <div>
+
+                    <h4>
+                        New Analysis
+                    </h4>
+
+                    <p>
+                        Upload or record a new voice
+                        sample for analysis.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- HISTORY -->
+
+            <div class="history-info-item">
+
+                <div class="history-info-item-icon">
+                    ◷
+                </div>
+
+                <div>
+
+                    <h4>
+                        History
+                    </h4>
+
+                    <p>
+                        View and compare your
+                        previous voice analyses.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- ACCOUNT -->
+
+            <div class="history-info-item">
+
+                <div class="history-info-item-icon">
+                    ♙
+                </div>
+
+                <div>
+
+                    <h4>
+                        Account
+                    </h4>
+
+                    <p>
+                        Manage your profile and
+                        account settings.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- PRIVACY -->
+
+            <div class="history-privacy">
+
+                <h3 class="history-privacy-title">
+                    🛡 Your Privacy Matters
+                </h3>
+
+                <p>
+                    All your voice data is secure and
+                    private. Only you can access your
+                    analysis history.
+                </p>
+
+            </div>
+
+        </aside>
+
+    </section>
+
+
+
+    <!-- =====================================================
+         EMPTY STATE
+    ====================================================== -->
+
+    <section
+        id="emptyHistory"
+        class="history-empty"
+        style="display: none;"
+    >
+
+        <h2>
+            No analysis history yet
+        </h2>
+
+        <p>
+            Your completed voice analyses will appear here.
+        </p>
+
+        <button
+            class="details-button primary-details-button"
+            onclick="window.location.href='analysis.html'"
+        >
+            Start New Analysis
+        </button>
+
+    </section>
+
+</main>
+
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+   <footer class="history-footer">
+
+    © 2026 Parkinson's Voice Insight.
+    All rights reserved.
+
+</footer>
+
+
+
+    <!-- =====================================================
+         JAVASCRIPT
+    ====================================================== -->
+
+   <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="js/history.js"></script>
+
+</body>
+
+</html>

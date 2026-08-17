@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Voice Analysis Details | Parkinson's Voice Insight</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin
+    >
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link
+        rel="stylesheet"
+        href="./css/style.css"
+    >
+
+    <style>
+
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 50px 30px 80px;
+        }
+
+
+        .details-intro {
+            margin-bottom: 30px;
+        }
+
+
+        .details-intro h1 {
+            margin-bottom: 12px;
+        }
+
+
+        .details-intro p {
+            max-width: 760px;
+        }
+
+
+        .assessment-banner {
+
+            display: flex;
+            align-items: center;
+            gap: 20px;
+
+            padding: 24px;
+
+            margin-bottom: 30px;
+
+            border-radius: 18px;
+
+            background: #f0f7ff;
+
+            border: 1px solid #dbeafe;
+        }
+
+
+        .assessment-icon {
+
+            width: 52px;
+            height: 52px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #ffffff;
+
+            font-size: 24px;
+        }
+
+
+        .assessment-banner h2 {
+            margin: 0 0 5px;
+        }
+
+
+        .assessment-banner p {
+            margin: 0;
+        }
+
+
+        .details-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                minmax(0, 1fr)
+                minmax(0, 1fr);
+
+            gap: 25px;
+
+            margin-bottom: 30px;
+        }
+
+
+        .details-card {
+
+            background: #ffffff;
+
+            border: 1px solid #e5e7eb;
+
+            border-radius: 18px;
+
+            padding: 28px;
+
+            box-shadow:
+                0 8px 25px rgba(0, 0, 0, 0.04);
+        }
+
+
+        .details-card h2 {
+
+            margin-top: 0;
+
+            margin-bottom: 8px;
+        }
+
+
+        .details-card-subtitle {
+
+            margin-bottom: 25px;
+
+            color: #6b7280;
+
+            font-size: 14px;
+        }
+
+
+        .parameter {
+
+            margin-bottom: 24px;
+        }
+
+
+        .parameter:last-child {
+            margin-bottom: 0;
+        }
+
+
+        .parameter-header {
+
+            display: flex;
+
+            justify-content: space-between;
+
+            align-items: center;
+
+            margin-bottom: 8px;
+        }
+
+
+        .parameter-name {
+            font-weight: 600;
+        }
+
+
+        .parameter-value {
+
+            font-weight: 600;
+
+            color: #2563eb;
+        }
+
+
+        .parameter-bar {
+
+            height: 8px;
+
+            background: #e5e7eb;
+
+            border-radius: 10px;
+
+            overflow: hidden;
+        }
+
+
+        .parameter-progress {
+
+            height: 100%;
+
+            width: 0%;
+
+            background: #2563eb;
+
+            border-radius: 10px;
+
+            transition: width 0.6s ease;
+        }
+
+
+        .parameter-description {
+
+            margin-top: 7px;
+
+            font-size: 12px;
+
+            color: #6b7280;
+        }
+
+
+        .chart-container {
+
+            height: 350px;
+
+            display: flex;
+
+            align-items: center;
+
+            justify-content: center;
+        }
+
+
+        #voiceChart {
+
+            width: 100%;
+
+            max-width: 500px;
+        }
+
+
+        .technical-section {
+
+            margin-bottom: 30px;
+        }
+
+
+        .technical-grid {
+
+            display: grid;
+
+            grid-template-columns:
+                repeat(3, 1fr);
+
+            gap: 12px;
+        }
+
+
+        .technical-item {
+
+            padding: 15px;
+
+            border-radius: 12px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+        }
+
+
+        .technical-item span {
+
+            display: block;
+
+            font-size: 12px;
+
+            color: #6b7280;
+
+            margin-bottom: 5px;
+        }
+
+
+        .technical-item strong {
+
+            font-size: 14px;
+        }
+
+
+        .information-box {
+
+            padding: 22px;
+
+            border-radius: 16px;
+
+            background: #f8fafc;
+
+            border: 1px solid #e5e7eb;
+
+            margin-bottom: 30px;
+        }
+
+
+        .information-box h3 {
+            margin-top: 0;
+        }
+
+
+        .information-box p {
+            margin-bottom: 0;
+            line-height: 1.7;
+        }
+
+
+        .details-actions {
+
+            display: flex;
+
+            gap: 15px;
+
+            justify-content: center;
+
+            margin-top: 30px;
+        }
+
+
+        .details-button {
+
+            padding: 13px 22px;
+
+            border: none;
+
+            border-radius: 10px;
+
+            cursor: pointer;
+
+            font-weight: 600;
+
+            font-size: 14px;
+        }
+
+
+        .primary-details-button {
+
+            background: #2563eb;
+
+            color: white;
+        }
+
+
+        .secondary-details-button {
+
+            background: #ffffff;
+
+            color: #374151;
+
+            border: 1px solid #d1d5db;
+        }
+
+
+        .empty-state {
+
+            text-align: center;
+
+            padding: 70px 20px;
+        }
+
+
+        .empty-state h2 {
+            margin-bottom: 10px;
+        }
+
+
+        @media (max-width: 850px) {
+
+            .details-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+            .technical-grid {
+
+                grid-template-columns:
+                    repeat(2, 1fr);
+
+            }
+
+        }
+
+
+        @media (max-width: 550px) {
+
+            .details-container {
+
+                padding:
+                    30px 18px 60px;
+
+            }
+
+
+            .technical-grid {
+
+                grid-template-columns: 1fr;
+
+            }
+
+
+            .details-actions {
+
+                flex-direction: column;
+
+            }
+
+        }
+
+    </style>
+
+</head>
+
+
+<body class="dashboard-page voice-details-page">
+
+
+    <!-- HEADER -->
+
+   <header class="dashboard-header">
+
+    <div class="dashboard-logo">
+
+        <div class="logo-icon">
+            〽
+        </div>
+
+        <div class="logo-text">
+            <strong>Parkinson's</strong>
+            <span>Voice Insight</span>
+        </div>
+
+    </div>
+
+
+    <nav class="dashboard-nav">
+
+        <a href="dashboard.html">
+            Dashboard
+        </a>
+
+        <a href="analysis.html">
+            Analyze Voice
+        </a>
+
+        <a href="history.html">
+            History
+        </a>
+
+    </nav>
+
+
+    <div class="dashboard-user">
+
+        <div class="notification-icon">
+            ♧
+        </div>
+
+        <div class="user-profile">
+
+            <div class="user-avatar">
+                👤
+            </div>
+
+            <span id="welcomeUser"></span>
+
+        </div>
+
+    </div>
+
+</header>
+
+
+    <!-- MAIN -->
+
+    <main class="details-container">
+
+
+        <!-- INTRO -->
+        <section class="details-intro">
+
+            <div class="details-intro-content">
+
+                <div class="intro-text">
+
+                    <p class="eyebrow">
+                        VOICE ANALYSIS DETAILS
+                    </p>
+
+                     <h1>
+                        Voice Analysis
+                        <span class="title-highlight">Details</span>
+                    </h1>
+
+                    <p>
+                        Review the voice characteristics extracted
+                        from your submitted voice sample.
+                    </p>
+
+                </div>
+
+
+                <div class="top-details-actions">
+
+                    <button
+                        id="downloadTopPdfBtn"
+                        class="details-button primary-details-button"
+                        type="button"
+                    >
+                        Download PDF
+                    </button>
+
+
+                    <button
+                        id="technicalFeaturesBtn"
+                        class="details-button secondary-details-button"
+                        type="button"
+                        onclick="window.location.href='technical-features.html'"
+                    >
+                        Technical Features
+                    </button>
+                </div>
+
+            </div>
+
+        </section>
+        <!-- ASSESSMENT -->
+
+        <section class="assessment-banner">
+
+            <div class="assessment-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+                <h2 id="assessmentTitle">
+                    Voice assessment completed
+                </h2>
+
+                <p id="assessmentText">
+                    —
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- MAIN DETAILS -->
+
+        <section class="details-grid">
+
+
+            <!-- KEY PARAMETERS -->
+
+            <div class="details-card">
+
+                <h2>
+                    Key Voice Parameters
+                </h2>
+
+                <p class="details-card-subtitle">
+                    Key characteristics identified in your voice sample
+                </p>
+
+
+                <!-- JITTER -->
+
+                <div class="parameter">
+
+                    <div class="parameter-header">
+
+                        <span class="parameter-name">
+                            Jitter
+                        </span>
+
+                        <span
+                            id="jitterValue"
+                            class="parameter-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="parameter-bar">
+
+                        <div
+                            id="jitterBar"
+                            class="parameter-progress"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="parameter-description">
+                        Variation in the timing of vocal cycles.
+                    </div>
+
+                </div>
+
+
+                <!-- SHIMMER -->
+
+                <div class="parameter">
+
+                    <div class="parameter-header">
+
+                        <span class="parameter-name">
+                            Shimmer
+                        </span>
+
+                        <span
+                            id="shimmerValue"
+                            class="parameter-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="parameter-bar">
+
+                        <div
+                            id="shimmerBar"
+                            class="parameter-progress"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="parameter-description">
+                        Variation in the strength of the voice.
+                    </div>
+
+                </div>
+
+
+                <!-- PITCH -->
+
+                <div class="parameter">
+
+                    <div class="parameter-header">
+
+                        <span class="parameter-name">
+                            Mean Pitch
+                        </span>
+
+                        <span
+                            id="pitchValue"
+                            class="parameter-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="parameter-bar">
+
+                        <div
+                            id="pitchBar"
+                            class="parameter-progress"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="parameter-description">
+                        Average pitch measured in the voice sample.
+                    </div>
+
+                </div>
+
+
+                <!-- VOICE BREAKS -->
+
+                <div class="parameter">
+
+                    <div class="parameter-header">
+
+                        <span class="parameter-name">
+                            Voice Breaks
+                        </span>
+
+                        <span
+                            id="voiceBreakValue"
+                            class="parameter-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="parameter-bar">
+
+                        <div
+                            id="voiceBreakBar"
+                            class="parameter-progress"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="parameter-description">
+                        Number of detected voice interruptions.
+                    </div>
+
+                </div>
+
+
+                <!-- UNVOICED -->
+
+                <div class="parameter">
+
+                    <div class="parameter-header">
+
+                        <span class="parameter-name">
+                            Unvoiced Frames
+                        </span>
+
+                        <span
+                            id="unvoicedValue"
+                            class="parameter-value"
+                        >
+                            —
+                        </span>
+
+                    </div>
+
+
+                    <div class="parameter-bar">
+
+                        <div
+                            id="unvoicedBar"
+                            class="parameter-progress"
+                        ></div>
+
+                    </div>
+
+
+                    <div class="parameter-description">
+                        Portion of the recording without detected voicing.
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- VOICE PROFILE -->
+
+            <div class="details-card">
+
+                <h2>
+                    Voice Profile Overview
+                </h2>
+
+                <p class="details-card-subtitle">
+                    Visual overview of selected voice characteristics
+                </p>
+
+
+                <div class="chart-container">
+
+                    <canvas
+                        id="voiceChart"
+                        width="500"
+                        height="350"
+                    ></canvas>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+
+       
+
+
+    
+
+
+    </main>
+
+
+    <script
+        src="https://cdn.jsdelivr.net/npm/chart.js"
+    ></script>
+
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+
+    <script src="js/voice-details.js"></script>
+
+</body>
+
+</html>

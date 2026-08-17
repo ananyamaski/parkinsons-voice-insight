@@ -1,0 +1,673 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Analyze Voice | Parkinson's Voice Insight</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+        rel="stylesheet"
+    >
+
+    <link rel="stylesheet" href="./css/style.css">
+
+</head>
+
+
+<body class="dashboard-page analysis-page">
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="dashboard-header">
+
+
+        <div class="dashboard-logo">
+
+            <div class="logo-icon">
+                〽
+            </div>
+
+            <div class="logo-text">
+
+                <strong>
+                    Parkinson's
+                </strong>
+
+                <span>
+                    Voice Insight
+                </span>
+
+            </div>
+
+        </div>
+
+
+        <nav class="dashboard-nav">
+
+            <a href="dashboard.html">
+                Dashboard
+            </a>
+
+            <a href="analysis.html" class="active">
+                Analyze Voice
+            </a>
+
+            <a href="history.html">
+                History
+            </a>
+
+            
+
+        </nav>
+
+
+        <div class="dashboard-user">
+
+            <div class="notification-icon">
+                ♧
+            </div>
+
+            <div class="user-profile">
+
+                <div class="user-avatar">
+                    👤
+                </div>
+
+                <span id="analysisUserName"></span>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+
+    <!-- =====================================================
+         MAIN CONTENT
+    ====================================================== -->
+
+    <main class="analysis-container">
+
+
+        <!-- =================================================
+             INTRO
+        ================================================== -->
+
+        <section class="analysis-intro">
+
+            <div class="analysis-badge">
+                ✦ &nbsp; AI-POWERED VOICE ANALYSIS
+            </div>
+
+
+            <h1>
+                Analyze Your
+                <span>
+                    Voice
+                </span>
+            </h1>
+
+
+            <p>
+                Upload or record a voice sample and let our AI
+                model analyze vocal characteristics associated
+                with Parkinson's risk.
+            </p>
+
+        </section>
+
+
+
+        <!-- =================================================
+             MAIN VOICE ANALYSIS CARD
+        ================================================== -->
+
+        <section class="voice-analysis-card">
+
+
+            <!-- =============================================
+                 UPLOAD AREA
+            ============================================== -->
+
+            <div class="upload-area">
+
+                <input
+                    type="file"
+                    id="audioFile"
+                    accept="audio/*"
+                    hidden
+                >
+
+
+                <label
+                    for="audioFile"
+                    class="upload-dropzone"
+                >
+
+                    <div class="upload-icon">
+                        ↑
+                    </div>
+
+
+                    <h2>
+                        Upload Your Voice Sample
+                    </h2>
+
+
+                    <p>
+                        Drag & drop your audio file here
+                    </p>
+
+
+                    <span>
+                        or click to browse
+                    </span>
+
+
+                    <small>
+                        Supported formats: WAV, MP3, M4A
+                    </small>
+
+                </label>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 OR DIVIDER
+            ============================================== -->
+
+            <div class="analysis-divider">
+
+                <span></span>
+
+                <strong>
+                    OR
+                </strong>
+
+                <span></span>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 RECORD AREA
+            ============================================== -->
+
+            <div class="record-area">
+
+
+                <div class="record-icon">
+                    🎙
+                </div>
+
+
+                <h2>
+                    Record Your Voice
+                </h2>
+
+
+                <p>
+                    Record a short voice sample directly
+                    using your device microphone.
+                </p>
+
+
+                <div class="record-controls">
+
+                    <button
+                        id="startRecordBtn"
+                        class="primary-button"
+                        type="button"
+                    >
+                        ● &nbsp; Start Recording
+                    </button>
+
+
+                    <button
+                        id="stopRecordBtn"
+                        class="secondary-button"
+                        type="button"
+                        disabled
+                    >
+                        ■ &nbsp; Stop Recording
+                    </button>
+
+                </div>
+
+
+                <!-- Recording status -->
+
+                <div
+                    id="recordingStatus"
+                    class="recording-status"
+                    style="display: none;"
+                >
+
+                    <span class="recording-dot"></span>
+
+                    <span>
+                        Recording...
+                    </span>
+
+                    <strong id="recordingTimer">
+                        00:00
+                    </strong>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 AUDIO PREVIEW
+            ============================================== -->
+
+            <div
+                id="audioPreviewSection"
+                class="audio-preview-card"
+                style="display: none;"
+            >
+
+                <div class="preview-header">
+
+                    <div>
+
+                        <span class="preview-label">
+                            VOICE SAMPLE READY
+                        </span>
+
+
+                        <strong id="selectedFileName">
+                            -
+                        </strong>
+
+                    </div>
+
+
+                    <button
+                        id="removeFileBtn"
+                        type="button"
+                        class="remove-button"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+
+                <audio
+                    id="audioPreview"
+                    controls
+                ></audio>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 WAVEFORM VISUAL
+            ============================================== -->
+
+            <div class="waveform-area">
+
+                <div class="waveform-label">
+                    Voice signal
+                </div>
+
+
+                <div class="waveform">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </div>
+
+            </div>
+
+
+
+            <!-- =============================================
+                 ANALYZE BUTTON
+            ============================================== -->
+
+            <div class="analyze-action">
+
+    <button
+        id="analyzeBtn"
+        class="primary-button analyze-main-button"
+        type="button"
+        disabled
+    >
+        Analyze Voice
+        <span>→</span>
+    </button>
+
+</div>
+
+
+<!-- =====================================================
+     ANALYSIS PROCESSING
+====================================================== -->
+
+<section
+    id="analysisProcessing"
+    class="analysis-processing"
+    style="display: none;"
+>
+
+    <div class="processing-card">
+
+        <div class="processing-icon">
+            <div class="processing-spinner"></div>
+        </div>
+
+        <span class="processing-label">
+            AI VOICE ANALYSIS
+        </span>
+
+        <h2>
+            Analyzing Your Voice...
+        </h2>
+
+        <p>
+            Our AI model is processing your voice sample
+            and evaluating relevant vocal characteristics.
+        </p>
+
+
+        <div class="processing-progress">
+
+            <div class="progress-track">
+
+                <div class="progress-bar"></div>
+
+            </div>
+
+        </div>
+
+
+        <div class="processing-steps">
+
+            <div class="processing-step completed">
+                <span class="step-icon">✓</span>
+                <span>Voice sample received</span>
+            </div>
+
+            <div class="processing-step completed">
+                <span class="step-icon">✓</span>
+                <span>Processing audio signal</span>
+            </div>
+
+            <div class="processing-step active">
+                <span class="step-icon">●</span>
+                <span>Extracting voice features</span>
+            </div>
+
+            <div class="processing-step">
+                <span class="step-icon">○</span>
+                <span>Running AI model</span>
+            </div>
+
+            <div class="processing-step">
+                <span class="step-icon">○</span>
+                <span>Preparing assessment</span>
+            </div>
+
+        </div>
+
+        <p class="processing-note">
+            Please wait while the analysis is completed.
+        </p>
+
+    </div>
+
+</section>
+
+
+
+            <!-- =============================================
+                 ANALYSIS RESULT
+            ============================================== -->
+
+            <section
+                id="analysisResult"
+                class="analysis-result"
+                style="display: none;"
+            >
+
+
+                <div class="result-header">
+
+                    <span class="result-label">
+                        ANALYSIS RESULT
+                    </span>
+
+
+                    <h2>
+                        Voice assessment completed
+                    </h2>
+
+
+                    <p>
+                        Your voice sample has been successfully
+                        analyzed. The results are presented below
+                        for your reference.
+                    </p>
+
+                </div>
+
+
+
+                <div class="result-main">
+
+                    <div
+                        id="resultIcon"
+                        class="result-icon"
+                    >
+                        ✓
+                    </div>
+
+
+                    <div class="result-content">
+
+                        <span class="result-title">
+                            Assessment
+                        </span>
+
+
+                        <h3 id="resultAssessment">
+                            Lower risk indicator
+                        </h3>
+
+
+                        <p id="resultDescription">
+                            The analyzed voice sample indicates
+                            a lower risk pattern based on the
+                            model assessment.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+
+                <!-- Result details -->
+
+                <div class="result-details">
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            Analysis status
+                        </span>
+
+                        <strong>
+                            Completed
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            Voice sample
+                        </span>
+
+                        <strong id="resultFileName">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                    <div class="result-detail">
+
+                        <span>
+                            Analysis date
+                        </span>
+
+                        <strong id="resultDate">
+                            —
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+
+
+                <!-- Disclaimer -->
+
+                <div class="result-disclaimer">
+
+                    <strong>
+                        Important:
+                    </strong>
+
+                    This assessment is intended for screening
+                    and research purposes only. It is not a
+                    medical diagnosis and should not replace
+                    evaluation by a qualified healthcare
+                    professional.
+
+                </div>
+
+
+
+                <!-- View parameters -->
+
+                <button
+                    id="viewParametersBtn"
+                    class="new-analysis-btn"
+                    type="button"
+                >
+                    View Voice Parameters
+                </button>
+
+
+                <!-- New analysis -->
+
+                <button
+                    id="newAnalysisBtn"
+                    class="new-analysis-btn"
+                    type="button"
+                >
+                    Analyze Another Sample
+                </button>
+
+
+            </section>
+
+        </section>
+
+
+
+        <!-- =================================================
+             SECURITY MESSAGE
+        ================================================== -->
+
+        <section class="analysis-security">
+
+            <div class="security-icon">
+                ✓
+            </div>
+
+
+            <div>
+
+                <strong>
+                    Your voice data is handled securely
+                </strong>
+
+                <p>
+                    Your analysis is associated with your account
+                    and used to provide your assessment.
+                </p>
+
+            </div>
+
+        </section>
+
+
+    </main>
+
+
+
+    <script src="./js/analysis.js"></script>
+
+</body>
+
+</html>
