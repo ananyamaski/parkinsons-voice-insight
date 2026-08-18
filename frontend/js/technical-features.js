@@ -7,9 +7,30 @@
    LOAD STORED FEATURES
 ========================================================= */
 
+const currentUserEmail =
+    localStorage.getItem("user_email");
+
+
+if (!currentUserEmail) {
+
+    alert(
+        "Please login to continue."
+    );
+
+    window.location.href =
+        "login.html";
+
+}
+
+
+const featuresKey =
+    "voiceAnalysisFeatures_" +
+    currentUserEmail;
+
+
 const storedFeatures =
     localStorage.getItem(
-        "voiceAnalysisFeatures"
+        featuresKey
     );
 
 
@@ -266,11 +287,15 @@ if (featureCount) {
    LOAD ANALYSIS RESULT
 ========================================================= */
 
+const resultKey =
+    "voiceAnalysisResult_" +
+    currentUserEmail;
+
+
 const storedResult =
     localStorage.getItem(
-        "voiceAnalysisResult"
+        resultKey
     );
-
 
 if (storedResult) {
 
