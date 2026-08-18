@@ -1,8 +1,10 @@
 fastapi
 uvicorn
-python-jose
+python-jose[cryptography]
 bcrypt
 sqlalchemy
 joblib
 pandas
+scikit-learn
 praat-parselmouth
+python-multipart
