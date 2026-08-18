@@ -848,9 +848,9 @@ analyzeBtn.addEventListener(
             );
 
 
-            const response =
+           const response =
                 await fetch(
-                    "http://127.0.0.1:8000/analyze",
+                    "https://parkinsons-voice-insight-api.onrender.com/analyze",
                     {
                         method: "POST",
                         body: formData

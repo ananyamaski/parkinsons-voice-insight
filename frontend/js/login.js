@@ -13,7 +13,7 @@ loginForm.addEventListener("submit", async function (event) {
         console.log("Email:", email);
 
         const response = await fetch(
-            "http://127.0.0.1:8000/login",
+            "https://parkinsons-voice-insight-api.onrender.com/login",
             {
                 method: "POST",
 
@@ -83,7 +83,7 @@ loginForm.addEventListener("submit", async function (event) {
         );
 
         alert(
-            "Unable to connect to the backend. Make sure the FastAPI server is running on port 8000."
+            "Unable to connect to the backend. Please try again."
         );
 
     }
